@@ -6,10 +6,15 @@ from Shapes import *
 width = 40
 #################
 
-print("Create a grid using newGrid(width,height)")
-print("Insert blocks using insert(block,x position, y position)")
-print("Or use wave function collapse to insert using fill(x position,y position)")
-print("Reprint grid printGrid()")
+print("1. Create a grid using newGrid(width,height)")
+print("2. Insert blocks using insert(block,x position, y position)")
+print("3. Reprint grid printGrid()")
+print("4. Fill in random blocks with find()")
+print("5. Or use wave function collapse to insert using fill(x position,y position)")
+print("6. Find the rest of the blocks with finish()")
+print("\n")
+print("- run() will create and fill a 20x20 grid with random blocks")
+print("- displayBlocks() will create a grid showing you all the available blocks")
 
 blocks = {
     "zero":(0,0,0,0),
@@ -130,6 +135,7 @@ def insert(block,x,y):
             grid[x][y] = name
             entropy[x][y].clear()
             return name
+    printGrid()
     
 def collapse(x,y):
     valid = list(blocks.keys())
@@ -211,7 +217,15 @@ def find():
         i_count += 1
     x,y = random.choice(g_list)
     fill(x,y)
-    
+
+
+def finish():
+    try:
+        while True:
+            find()
+    except:
+        pass
+
 def run():
     z = 20
     newGrid(z,z)
@@ -220,5 +234,26 @@ def run():
     while i < z*z-1:
         find()
         i += 1
-    
-    
+
+def displayBlocks():
+    newGrid(9,9)
+    insert("zero",1,1)
+    insert("one",1,3)
+    insert("two",1,5)
+    insert("three",1,7)
+    insert("four",3,1)
+    insert("five",3,3)
+    insert("six",3,5)
+    insert("seven",3,7)
+    insert("eight",5,1)
+    insert("nine",5,3)
+    insert("ten",5,5)
+    insert("eleven",5,7)
+    insert("twelve",7,1)
+    insert("thirteen",7,3)
+    insert("fourteen",7,5)
+    insert("fifteen",7,7)
+    print("zero,   one,      two,      three\nfour,   five,     six,      seven\neight,  nine,     ten,      eleven\ntwelve, thirteen, fourteen, fifteen")
+    printGrid()
+
+
