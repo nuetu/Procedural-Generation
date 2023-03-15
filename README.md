@@ -1,4 +1,4 @@
-# Wave Function Collapse 
+# Procedural Generation
 Personal project that fills a grid with any random, but available, block to create new patterns.
 Blocks have 4 sides, each either with a flush or open attribute. 
 If you imagine a straight vertical line inside a square, it touches the top and bottom, but not the sides.
